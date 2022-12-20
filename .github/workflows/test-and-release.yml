@@ -1,0 +1,50 @@
+name: Test, Build & Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+
+  build-and-release:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Prepare java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: 8
+
+      - name: Install clojure tools
+        uses: DeLaGuardo/setup-clojure@8.0
+        with:
+          cli: 1.11.1.1149
+
+      - name: Cache All The Things
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.m2/repository
+            ~/.gitlibs
+            ~/.clojure
+            ~/.cpcache
+          key: ${{ runner.os }}-${{ hashFiles('**/deps.edn') }}
+
+      - name: Run tests and build
+        run: clojure -T:build ci
+        shell: bash
+
+      - name: Deploy to Clojars
+        run: clojure -T:build deploy
+        shell: bash
+        env:
+          CLOJARS_PASSWORD: ${{secrets.DEPLOY_TOKEN}}
+          CLOJARS_USERNAME: ${{secrets.DEPLOY_USERNAME}}
