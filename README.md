@@ -6,8 +6,25 @@
 
 Select and rename keys as fast as possible with idiomatic Clojure
 
-## Usage
+## API
 
+See [API](./API.md)
+
+## Dependency information
+
+Deps:
+
+```clojure
+{io.github.bsless/keys {:mvn/version "..."}}
+```
+
+Leiningen:
+
+```clojure
+[io.github.bsless/keys "..."]
+```
+
+## Usage
 
 ```clojure
 (require '[bsless.keys :as keys])
