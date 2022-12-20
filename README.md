@@ -1,3 +1,7 @@
+[![Clojars Project](https://img.shields.io/clojars/v/io.github.bsless/keys.svg)](https://clojars.org/io.github.bsless/keys)
+[![cljdoc](https://cljdoc.org/badge/bsless/keys)](https://cljdoc.org/d/bsless/keys)
+![Test And Snapshot](https://github.com/bsless/keys/actions/workflows/test-and-snapshot.yml/badge.svg)
+
 # Keys
 
 Select and rename keys as fast as possible with idiomatic Clojure
