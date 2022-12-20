@@ -161,7 +161,8 @@
     (select-key-as! (f' acc m) m k k')))
 
 (defn select-as
-  "Like [[clojure.core/select-as-keys]] but faster and renames keys according to kmap.
+  "Like [[clojure.core/select-keys]] but faster and renames keys
+  according to kmap as if by [[clojure.set/rename-keys]].
   If called without a map, returns a function with two arities which
   will select-as the provided keys.
   The returned function is operationally equivalent to:
