@@ -12,21 +12,21 @@ Select and rename keys as fast as possible with idiomatic Clojure
 This library provides a few functions for selecting and renaming keys,
 operationally equivalent to the following clojure.core functions:
 
-| keys                                 | clojure.core                                                              |
-|:-------------------------------------|:--------------------------------------------------------------------------|
-| (select m ks)                        | (select-keys m ks)                                                        |
-| ((select ks) m)                      | (select-keys m ks)                                                        |
-| ((select ks) to m)                   | (merge to (select-keys m ks))                                             |
-| (select* m k0 k1 k2)                 | (select-keys m [k0 k1 k2])                                                |
-| (select-into* to m k0 k1 k2)         | (merge to (select-keys m [k0 k1 k2]))                                     |
-| (select-as m kmap)                   | (-> m (select-keys (keys kmap)) (set/rename-keys kmap))                   |
-| ((select-as kmap) m)                 | (-> m (select-keys (keys kmap)) (set/rename-keys kmap))                   |
-| ((select-as kmap) to m)              | (merge to (-> m (select-keys (keys kmap)) (set/rename-keys kmap)))        |
-| (select-as* m k0 k0' k1 k1')         | (-> m (select-keys [k0 k1]) (set/rename-keys {k0 k0' k1 k1'}))            |
-| (select-into-as* to m k0 k0' k1 k1') | (merge to (-> m (select-keys [k0 k1]) (set/rename-keys {k0 k0' k1 k1'}))) |
-| (rename m kmap)                      | (set/rename-keys m kmap)                                                  |
-| ((rename kmap) m)                    | (set/rename-keys m kmap)                                                  |
-| (rename* m k0 k0' k1 k1')            | (set/rename-keys m {k0 k0' k1 k1'})                                       |
+| keys                                   | clojure.core                                                                |
+|:---------------------------------------|:----------------------------------------------------------------------------|
+| `(select m ks)`                        | `(select-keys m ks)`                                                        |
+| `((select ks) m)`                      | `(select-keys m ks)`                                                        |
+| `((select ks) to m)`                   | `(merge to (select-keys m ks))`                                             |
+| `(select* m k0 k1 k2)`                 | `(select-keys m [k0 k1 k2])`                                                |
+| `(select-into* to m k0 k1 k2)`         | `(merge to (select-keys m [k0 k1 k2]))`                                     |
+| `(select-as m kmap)`                   | `(-> m (select-keys (keys kmap)) (set/rename-keys kmap))`                   |
+| `((select-as kmap) m)`                 | `(-> m (select-keys (keys kmap)) (set/rename-keys kmap))`                   |
+| `((select-as kmap) to m)`              | `(merge to (-> m (select-keys (keys kmap)) (set/rename-keys kmap)))`        |
+| `(select-as* m k0 k0' k1 k1')`         | `(-> m (select-keys [k0 k1]) (set/rename-keys {k0 k0' k1 k1'}))`            |
+| `(select-into-as* to m k0 k0' k1 k1')` | `(merge to (-> m (select-keys [k0 k1]) (set/rename-keys {k0 k0' k1 k1'})))` |
+| `(rename m kmap)`                      | `(set/rename-keys m kmap)`                                                  |
+| `((rename kmap) m)`                    | `(set/rename-keys m kmap)`                                                  |
+| `(rename* m k0 k0' k1 k1')`            | `(set/rename-keys m {k0 k0' k1 k1'})`                                       |
 
 
 All implementations provide better performance than the core implementation.
