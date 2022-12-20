@@ -49,7 +49,6 @@ operationally equivalent to the following clojure.core functions:
 | `((rename kmap) m)`                    | `(set/rename-keys m kmap)`                                                  |
 | `(rename* m k0 k0' k1 k1')`            | `(set/rename-keys m {k0 k0' k1 k1'})`                                       |
 
-
 All implementations provide better performance than the core implementation.
 
 The implementations which don't take a source map return a function
